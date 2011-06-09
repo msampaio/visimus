@@ -1,1 +1,22 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <h1>Search Matrix</h1>
+    <p>This small app allows you to search notes in a 12-tone matrix. It's useful during the analysis process</p>
+    
+    <form>
+        <fieldset>
+            <section>
+                <label for="serie">Tone Row</label>
+                <div>
+                    <input type="text" name="serie" id="serie" data-regex="^[0-9 ]+$" class="text"/>
+                </div>
+                <label for="notes">Notes</label>
+                <div><input type="text" name="notes" id="notes" data-regex="^[0-9 ]+$" class="text"/></div>
+            </section>
+            <section>
+                <div><button>Submit</button></div>
+            </section>
+        </fieldset>
+    </form>
+{% endblock %}
