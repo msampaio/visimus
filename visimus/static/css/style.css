@@ -236,6 +236,22 @@ table td, table th{
 	padding:6px 3px;
 	text-align:center;
 }
+
+table.matrix td, table th{
+	border:0px solid;
+	padding:6px 3px;
+	text-align:center;
+}
+
+table.matrix td.found-notes {
+    color: red;
+    background-color: yellow;
+}
+
+table.matrix .select {
+    background-color: yellow;
+}
+
 table th{
 	font-weight:700;
 }
@@ -1889,4 +1905,3 @@ body{
 	-moz-border-radius:4px !important;
 	border-radius:4px !important;
 }
-

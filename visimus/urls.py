@@ -5,7 +5,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('visimus.matrix.views',
     (r'^$', "main_page"),
-    (r'^matrix/$', "matrix"),
+    (r'^matrix/$', "matrix_form"),
+    (r'^matrix/show/$', "matrix_show"),
 
 )
 

@@ -1,5 +1,10 @@
 # Django settings for visimus project.
 
+import sys
+import os
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -83,7 +88,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'visimus.urls'
 
 TEMPLATE_DIRS = (
-    '/Users/kroger/Dropbox/Code/visimus/visimus/templates/',
+    os.path.join(SITE_ROOT, 'templates'),
+    #'/Users/kroger/Dropbox/Code/visimus/visimus/templates/',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

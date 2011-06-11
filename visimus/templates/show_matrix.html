@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Matrix {{ row }}</h1>
+
+    <textblock>
+        <table class="matrix">
+            <colgroup>
+            {% for column in cons_column %}
+                {% if column %}
+                    <col class="select" />
+                {% else %}
+                    <col />
+                {% endif %}
+            {% endfor %}
+
+            {% for line, pos, cons1 in matrixpos %}
+                {% if cons1 %}
+                    <tr class="select">
+                {% else %}
+                    <tr>
+                {% endif %}
+                    {% for item in line %}
+                        {% if forloop.counter0 in pos %}
+                            <td class="found-notes">{{ item }}</td>
+                        {% else %}
+                            <td>{{ item }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+    </textblock>
+{% endblock %}

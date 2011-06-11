@@ -15,6 +15,14 @@ class MusicTest(TestCase):
     def test_transposition_startswith(self):
         self.assertEqual(music.transposition_startswith([3, 5, 6], 7), [7, 9, 10])
 
+    def test_rotate(self):
+        self.assertEqual(music.rotate([1,2,3]), [2,3,1])
+
+    def test_intervals(self):
+        self.assertEqual(music.intervals([1, 2, 3]), [1, 1])
+        self.assertEqual(music.intervals([0, 4, 7]), [4, 3])
+        self.assertEqual(music.intervals([0, 11, 3]), [11, 4])
+
     def test_matrix(self):
         row = [4, 5, 7, 1, 6, 3, 8, 2, 11, 0, 9, 10]
         matrix = [[4, 5, 7, 1, 6, 3, 8, 2, 11, 0, 9, 10],
