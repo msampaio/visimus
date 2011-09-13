@@ -99,7 +99,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'visimus.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(MAINDIR, 'visimus', 'templates'),
+    os.path.join(MAINDIR, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
