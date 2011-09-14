@@ -1,16 +1,13 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 
 admin.autodiscover()
 
-urlpatterns = patterns('visimus.matrix.views',
-    (r'^$', "main_page"),
-    (r'^matrix/$', "matrix_form"),
-    (r'^matrix/show/$', "matrix_show"),
-
-)
-
-urlpatterns += patterns('',
-    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+urlpatterns = patterns('',
+    (r'^$', direct_to_template, {'template': "main_page.html"}),
+    (r'^matrix/', include('matrix.urls')),
+    (r'^contour/', include('contourweb.urls')),
     (r'^admin/', include(admin.site.urls)),
+    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )

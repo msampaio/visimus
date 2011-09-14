@@ -1,4 +1,4 @@
-1;2c.idea
+.idea
 *.pyc
 data.db
 serverconf.json

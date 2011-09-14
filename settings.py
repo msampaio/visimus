@@ -5,6 +5,7 @@ import socket
 import json
 import unicodedata
 
+
 HOST = socket.gethostname()
 MAINDIR = os.path.dirname(os.path.abspath( __file__ ))
 LOGIN_URL = "/login/"
@@ -98,8 +99,11 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'visimus.urls'
 
+
 TEMPLATE_DIRS = (
     os.path.join(MAINDIR, 'templates'),
+    os.path.join(MAINDIR, "matrix", "templates"),
+    os.path.join(MAINDIR, "contourweb", "templates"),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -118,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.staticfiles',
     'visimus.matrix',
+    'visimus.contourweb',
     'south',
     'django_nose',
     )
