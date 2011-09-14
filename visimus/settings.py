@@ -21,8 +21,8 @@ if HOST == 'web187.webfaction.com':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'visimus',
-            'USER': 'visimus',
+            'NAME': 'kroger_visimus',
+            'USER': 'kroger_visimus',
             'PASSWORD': serverconf['db-password'],
             'HOST': '127.0.0.1',
             'PORT': '5432',
