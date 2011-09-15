@@ -52,9 +52,9 @@ else:
         }
 
     LOGFILE = os.path.join(MAINDIR, 'log', 'visimus.log')
-    STATIC_ROOT = os.path.join(MAINDIR, "static/")
-    print STATIC_ROOT
-
+    STATICFILES_DIRS = (
+        os.path.join(MAINDIR, "static/"),
+        )
 
 if PRODUCTION:
     DEBUG = False
