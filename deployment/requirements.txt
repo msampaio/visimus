@@ -4,4 +4,4 @@ south
 numpy
 git+https://github.com/mdsmus/MusiContour
 git+git://github.com/matplotlib/matplotlib.git
-import PIL
+PIL

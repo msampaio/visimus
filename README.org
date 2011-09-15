@@ -1,0 +1,96 @@
+visimus is a collection of web apps for music visualization developed
+by the Genos Computer Music Research Team (http://genosmus.com).
+
+* Theme
+
+We are using the White Label Theme, here's the documentation:
+
+http://revaxarts-themes.com/whitelabel/docs/
+
+
+* Development
+
+** Instalation
+
+To run visimus in a development machine do the following:
+
+- install the dependencies:
+
+  easy_install pip
+  pip install -r deployment/requirements.txt
+
+- Create a development database:
+
+  make reset-database
+
+** Add a new app
+
+To add a new app:
+
+- create a django app in the toplevel directory:
+
+  django-admin.py startapp foobar
+
+- add an entry in visimus/urls.py, e.g.:
+
+  (r'^foobar/', include('foobar.urls')),
+
+- create a foobar/urls.py file (see how it's done in the other apps)
+
+- Add your app to INSTALLED_APPS in settings.py
+
+- Add your app to TEMPLATE_DIRS in settings.py:
+
+  os.path.join(MAINDIR, "foobar", "templates"),
+
+** Settings
+
+The templates of your app should inherit from base.html but should be
+located in a template directory inside your app's directory. In our
+example, the templates for your app should be at
+visimus/foobar/templates.
+
+All static files (css, javascript, images) should be in
+visimus/static.
+
+
+* Deployment on webfaction
+
+These are notes to remind me how to deploy it on webfaction.
+
+- Add the following to ~/.ssh/config
+
+  Host githubmirror
+  User git
+  Hostname github.com
+  IdentityFile /home/kroger/.ssh/id_dsa_github_mirroring
+
+- Create a django app and link it to the website
+
+- Create a static app and link it to the website
+
+- Clone the project but use githubmirror (without password):
+
+  git clone git@githubmirror:kroger/visimus.git
+
+- Link the static content in the repository to the visimus_static app:
+
+  ln -s $(pwd)/visimus/visimus/static/* $(pwd)/visimus_static/
+
+- Create postgres database named kroger_visimus (using the web
+  interface)
+
+- Create a serverconf.json file in the same directory as settings.py
+  with the database password:
+
+{
+    "password": "my password"
+}
+
+- Install the packages using pip:
+
+  pip install -r deployment/requirements.txt
+
+- Sync the database
+
+  ./manage syncdb
