@@ -52,7 +52,8 @@ else:
         }
 
     LOGFILE = os.path.join(MAINDIR, 'log', 'visimus.log')
-    STATIC_ROOT = os.path.join(MAINDIR, "testapp/static/")
+    STATIC_ROOT = os.path.join(MAINDIR, "static/")
+    print STATIC_ROOT
 
 
 if PRODUCTION:
@@ -65,11 +66,11 @@ else:
     LOG_LEVEL = logging.DEBUG
 
 
-ADMINS = (
-    ('Pedro Kroger', 'kroger@pedrokroger.net'),
-)
+#ADMINS = (
+#    ('Pedro Kroger', 'kroger@pedrokroger.net'),
+#)
 
-MANAGERS = ADMINS
+#MANAGERS = ADMINS
 
 TIME_ZONE = 'America/Bahia'
 LANGUAGE_CODE = 'en-us'
