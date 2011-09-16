@@ -7,19 +7,45 @@
 <p>Contour operation</p>
 
 <table>
-  <tr>
-    <td>Original cseg</td>
-    <td>{{ cseg }}</td>
-  </tr>
-  {% for op in op_dicts %}
-  <tr>
-    {% for el in op %}
-    <td>{{ el }}</td>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Original</td>
+      <td>{{ code }}</td>
+    </tr>
+    {% for di in op_dicts %}
+    <tr>
+      <td>{{ di.name }}</td>
+      <td>{{ di.value }}</td>
+    </tr>
     {% endfor %}
-  </tr>
-  {% endfor %}
+  </tbody>
 </table>
 
-<img src='{{ STATIC_URL }}cseg_output.png' alt='Operations on contour {{ cseg }}'>
+<table class="chart" data-height="500">
+  <tbody>
+    <tr>
+      <th>Original {{ code }}</th>
+      {% for cps in cseg %}
+      <td>{{ cps }}</td>
+      {% endfor %}
+    </tr>
+    {% for di in op_dicts %}
+    <tr>
+      {% if di.graph %}
+      <th>{{ di.name }} {{ di.value }}</th>
+      {% for cps in di.lvalue %}
+      <td>{{ cps }}</td>
+      {% endfor %}
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

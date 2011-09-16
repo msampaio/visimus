@@ -36,15 +36,38 @@ def contour_show(request):
     graph = [[cseg, 'k', 'Original']]
 
     ar = []
-    for op in operations:
-        dic = ops_dic[op]
-        value = ca.apply_fn(cseg, op)
-        if dic['graph'] == True:
-            graph.append([value, dic['color'], dic['name']])
-        ar.append([dic['name'], value])
+    # for op in operations:
+    #     dic = ops_dic[op]
+    #     value = ca.apply_fn(cseg, op)
+    #     if dic['graph'] == True:
+    #         graph.append([value, dic['color'], dic['name']])
+    #     ar.append([dic['name'], value])
 
-    cp.contour_lines_save_django(*graph)
+    # cp.contour_lines_save_django(*graph)
 
-    args = {'cseg': cseg, 'op_dicts': ar}
+    # for op_dic in ops_dic:
+    #     operation = op_dic['operation']
+    #     op_name = op_dic['op_name']
+    #     op_color = op_dic['op_color']
+    #     op = ca.apply_fn(cseg, operation)
+    #     op_type = op_dic['op_type']
+    #     if op_type == 'g':
+    #         ar.append({'op_name': op_name, 'op_repr': op, 'op_data': list(op), 'op_type': op_type})
+    #     else:
+    #         ar.append({'op_name': op_name, 'op_repr': op})
+
+    for operation in operations:
+        dic = ops_dic[operation]
+        name = dic['name']
+        value = ca.apply_fn(cseg, operation)
+        graph = dic['graph']
+        if graph == True:
+            ar.append({'name': name, 'code': operation, 'value': value,
+                       'lvalue': list(value), 'graph': graph})
+        else:
+            ar.append({'name': name, 'value': value})
+
+    args = {'cseg': list(cseg), 'code': cseg, 'op_dicts': ar}
+    # args = {'cseg': cseg, 'op_dicts': ar}
 
     return render(request, 'contour_show.html', args)
