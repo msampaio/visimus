@@ -27,25 +27,37 @@
   </tbody>
 </table>
 
-<table class="chart" data-height="500">
-  <tbody>
-    <tr>
-      <th>Original {{ code }}</th>
-      {% for cps in cseg %}
-      <td>{{ cps }}</td>
-      {% endfor %}
-    </tr>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){
+
+    var csegs_values=new Array();
+    csegs_values[0] = {{ cseg }}
+
     {% for di in op_dicts %}
-    <tr>
-      {% if di.graph %}
-      <th>{{ di.name }} {{ di.value }}</th>
-      {% for cps in di.lvalue %}
-      <td>{{ cps }}</td>
-      {% endfor %}
-      {% endif %}
-    </tr>
+    {% if di.graph %}
+       csegs_values.push({{ di.lvalue }})
+    {% endif %}
     {% endfor %}
-  </tbody>
-</table>
+
+    $.jqplot('chart1', csegs_values, {
+       title: 'MusiContour',
+       legend: {
+          show:true, location: 'e',
+          placement: 'outside'
+       },
+       series: [
+          {label: 'Original cseg: {{ code }}'},
+       {% for di in op_dicts %}
+       {% if di.graph %}
+          {label: '{{ di.name }}: {{ di.value }}'},
+       {% endif %}
+       {% endfor %}
+       ]
+    });
+
+  });
+</script>
+
+<div id="chart1" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
 
 {% endblock %}
