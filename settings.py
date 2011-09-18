@@ -105,6 +105,7 @@ TEMPLATE_DIRS = (
     os.path.join(MAINDIR, 'templates'),
     os.path.join(MAINDIR, "matrix", "templates"),
     os.path.join(MAINDIR, "contourweb", "templates"),
+    os.path.join(MAINDIR, "harmony", "templates"),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -124,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'visimus.matrix',
     'visimus.contourweb',
+    'visimus.harmony',
     'south',
     'django_nose',
     )
