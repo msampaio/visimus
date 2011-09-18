@@ -136,12 +136,12 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--color',
     '--with-coverage',
-    '--cover-package=testapp',
+    '--cover-package=matrix',
     '--cover-html',
     '--nologcapture',
 ]
 
-AUTH_PROFILE_MODULE = "testapp.UserProfile"
+AUTH_PROFILE_MODULE = "matrix.UserProfile"
 
 logging.basicConfig(filename=LOGFILE,level=LOG_LEVEL,
                     format='%(asctime)s %(levelname)s %(message)s')
