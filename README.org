@@ -31,13 +31,10 @@ To add a new app:
 
   django-admin.py startapp foobar
 
-- add an entry in the id=nav in visimus/templates/base.html so your
+- add an entry in visimus/templates/menu.html so your
   app will be listed in the sidebar:
 
-    <ul id="nav">
-        ....
-        <li class="i_table"><a href="/foobar/"><span>Foobar</span></a></li>
-    </ul>
+    <li class="i_table"><a href="/foobar/"><span>Foobar</span></a></li>
 
 - add an entry in visimus/urls.py, e.g.:
 
