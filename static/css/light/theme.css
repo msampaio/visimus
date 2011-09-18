@@ -30,7 +30,7 @@
 /*----------------------------------------------------------------------*/
 
 html, body, textarea, input { 
-	color:#6f6f6f;
+	color: #000000;
 }
 html{
 	background-color:#ffffff;
@@ -47,8 +47,8 @@ nav ul li a span{
 }
 
 h1, h2, h3, h4, h5, h6{
-	text-shadow:0 1px 0 #ffffff;
-	color:#777777;
+	/*text-shadow:0 1px 0 #ffffff;*/
+	color: #000000;
 }
 h1{
 	text-shadow:0 2px 0 #ffffff;
@@ -113,7 +113,7 @@ hr {
 	color:#f1f1f1;
 }
 #pageoptions ul li a{
-	color:#999999;
+	color: #000000;
 }
 #pageoptions ul li a:hover, #pageoptions ul li a.active{
 	color:#f1f1f1;

@@ -46,7 +46,7 @@ html,body,div,span,applet,object,iframe,input,h1,h2,h3,h4,h5,h6,p,blockquote,pre
 	padding:0;
 	border:0;
 	outline:0;
-	font-weight:100;
+	/*font-weight:100;*/
 	font-style:inherit;
 	font-size:100%;
 	font-family:inherit;
@@ -61,7 +61,7 @@ html,body,div,span,applet,object,iframe,input,h1,h2,h3,h4,h5,h6,p,blockquote,pre
 /*----------------------------------------------------------------------*/
 
 html, textarea, input, input[type=submit], button, a.btn, span, div.alert p, header{ 
-	font-family:'PT Sans', sans-serif;
+	font-family:'Georgia', serif;
 }
 code, pre{
 	font-family:"Courier New", Courier, monospace;
@@ -73,8 +73,7 @@ code, pre{
 /*----------------------------------------------------------------------*/
 
 html, body, textarea, input { 
-	font-size:101%;
-	font-size:12px;
+	font-size:100%;
 	-webkit-text-size-adjust:none;
 }
 html{
@@ -94,9 +93,11 @@ header, footer, nav, section{
 
 h1, h2, h3, h4, h5, h6{
 	font-weight:100;
+    font-family: 'Verdana', sans-serif;
+    padding-bottom: 24pt;
 }
 h1 {
-	font-size:28px;
+	font-size:18pt;
 	line-height:32px;
 	margin-top:22px;
 }
@@ -136,7 +137,7 @@ h3 span{
 p, ul, ol, pre{
 	margin-bottom:18px;
 	line-height:18px;
-	font-size:12px;
+	font-size:12pt;
 }
 
 blockquote{
@@ -149,6 +150,7 @@ blockquote{
 }
 li{
 	margin-left:18px;
+    /*padding-bottom: 6pt;*/
 }
 
 hr { 
@@ -935,6 +937,11 @@ input[type=submit]{
 	min-height:33px;
 }
 
+#content li {
+	margin-left:24pt;
+    padding-bottom: 6pt;
+}
+
 #content form{
 	border:1px solid;
 	padding:4px;
@@ -982,7 +989,8 @@ input[type=submit]{
 }
 #content form input, #content form textarea{
 	padding:6px 2px;
-	font-size:13px;
+	font-size:12pt;
+    font-family: "'Deja Vu Sans Mono'", "Bitstream Vera Sans Mono", sans-serif
 }
 #content form fieldset > section{
 	width:100%;
