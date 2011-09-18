@@ -15,7 +15,8 @@ def contour_form(request):
     if request.method == "POST":
         form = ContourForm(request.POST)
         if form.is_valid():
-            request.session['contour'] = form.cleaned_data['contour_points']
+            request.session['contour_1'] = form.cleaned_data['contour_1']
+            request.session['contour_2'] = form.cleaned_data['contour_2']
             request.session['operation'] = form.cleaned_data['operation']
             return HttpResponseRedirect('/contour/show/')
     else:
@@ -27,24 +28,27 @@ def contour_form(request):
 
 
 def contour_show(request):
-    cont = request.session['contour']
+    contour_1 = request.session['contour_1']
+    contour_2 = request.session['contour_2']
     operations = request.session['operation']
 
-    cseg = cc.Contour([int(x) for x in cont.strip().split()])
+    cseg1 = cc.Contour([int(x) for x in contour_1.strip().split()])
+    cseg2 = cc.Contour([int(x) for x in contour_2.strip().split()])
 
-    ar = []
+    op_arg = []
 
     for operation in operations:
         dic = ops_dic[operation]
         name = dic['name']
-        value = ca.apply_fn(cseg, operation)
+        value1 = ca.apply_fn(cseg1, operation)
+        value2 = ca.apply_fn(cseg2, operation)
         op_type = dic['op_type']
-        if op_type == 'Plot':
-            ar.append({'name': name, 'code': operation, 'value': value,
-                       'lvalue': list(value), 'op_type': op_type})
-        else:
-            ar.append({'name': name, 'value': value})
+        op_arg.append({'op_name': name, 'op_code': operation, 'op_type': op_type,
+                       'op_value_repr1': value1, 'op_value1': list(value1),
+                       'op_value_repr2': value2, 'op_value2': list(value2)})
 
-    args = {'cseg': list(cseg), 'code': cseg, 'op_dicts': ar}
+    args = {'cseg1': list(cseg1), 'code1': cseg1,
+            'cseg2': list(cseg2), 'code2': cseg2,
+            'op_dicts': op_arg}
 
     return render(request, 'contour_show.html', args)

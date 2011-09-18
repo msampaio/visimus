@@ -63,9 +63,14 @@ OP_CHOICES = sorted([(op, ops_dic[op]['name']) for op in ops_dic.keys()], key=la
 
 
 class ContourForm(forms.Form):
-    contour_points = forms.CharField(max_length=20,
-                                     initial='0 2 1 3 4 5',
-                                     validators=[validate_cps],
-                                     help_text='Input cseg contour points.')
+    contour_1 = forms.CharField(max_length=20,
+                                initial='0 2 1 3 4 5',
+                                validators=[validate_cps],
+                                help_text='Input contour segments points.')
+
+    contour_2 = forms.CharField(max_length=20,
+                                initial='8 3 4 6 7 2',
+                                validators=[validate_cps],
+                                help_text='Input contour segments points.')
 
     operation = forms.MultipleChoiceField(choices=OP_CHOICES, widget=forms.CheckboxSelectMultiple)
