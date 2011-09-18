@@ -32,9 +32,6 @@ def contour_show(request):
 
     cseg = cc.Contour([int(x) for x in cont.strip().split()])
 
-    args = {'cseg': cseg}
-    graph = [[cseg, 'k', 'Original']]
-
     ar = []
 
     for operation in operations:

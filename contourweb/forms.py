@@ -36,16 +36,12 @@ def validate_cps(str):
 
 ops_dic = {
     'retrograde': {'name': 'Retrograde',
-                   'color': 'b',
                    'graph': True},
     'inversion': {'name': 'Inversion',
-                  'color': 'r',
                    'graph': True},
     'translation': {'name': 'Normal form',
-                    'color': 'g',
                     'graph': True},
     'prime_form_marvin_laprade': {'name': 'ML Prime form',
-                                  'color': 'm',
                                   'graph': True},
     'internal_diagonals': {'name': 'Internal diagonal (1)',
                            'graph': False},
