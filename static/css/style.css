@@ -990,8 +990,8 @@ input[type=submit]{
 #content form input, #content form textarea{
 	padding:6px 2px;
 	font-size:12pt;
-    font-family: "'Deja Vu Sans Mono'", "Bitstream Vera Sans Mono", sans-serif
 }
+
 #content form fieldset > section{
 	width:100%;
 	border-top:1px solid;
