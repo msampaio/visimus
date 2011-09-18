@@ -3,7 +3,6 @@ from django.shortcuts import render_to_response, render
 from forms import ContourForm
 from forms import ops_dic
 import contour.contour as cc
-import contour.plot as cp
 import contour.auxiliary as ca
 
 
