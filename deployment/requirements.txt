@@ -1,7 +1,4 @@
 django-nose
 django
 south
-numpy
-git+https://github.com/mdsmus/MusiContour
-git+git://github.com/matplotlib/matplotlib.git
-PIL
+http://pypi.python.org/packages/source/M/MusiContour/MusiContour-visimus-0.3.1.tar.gz
