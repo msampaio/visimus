@@ -2,24 +2,111 @@
 
 {% block content %}
 
-<img src='{{ STATIC_URL }}musicontour-logo.png' alt='MusiContour logo'>
+<a href="http://genosmus.com/MusiContour" target="_blank" title="MusiContour">
+  <img src='{{ STATIC_URL }}musicontour-logo.png' alt='MusiContour logo'>
+</a>
 
 <p>Contour operation</p>
 
 <table>
-  <tr>
-    <td>Original cseg</td>
-    <td>{{ cseg }}</td>
-  </tr>
-  {% for op in op_dicts %}
-  <tr>
-    {% for el in op %}
-    <td>{{ el }}</td>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Cseg 1</th>
+      <th>Cseg 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Original</td>
+      <td>{{ code1 }}</td>
+      <td>{{ code2 }}</td>
+    </tr>
+    {% for dic in op_dicts %}
+    <tr>
+      <td>{{ dic.op_name }}</td>
+      <td>{{ dic.op_value_repr1 }}</td>
+      <td>{{ dic.op_value_repr2 }}</td>
+    </tr>
     {% endfor %}
-  </tr>
-  {% endfor %}
+  </tbody>
 </table>
 
-<img src='{{ STATIC_URL }}tmp/cseg_output.png' alt='Operations on contour {{ cseg }}'>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){
+    $.jqplot.config.enablePlugins = true;
+
+    var csegs_values1=new Array();
+    csegs_values1[0] = {{ cseg1 }}
+    var csegs_values2=new Array();
+    csegs_values2[0] = {{ cseg2 }}
+
+    {% for di in op_dicts %}
+    {% if di.op_type == 'Plot' %}
+       csegs_values1.push({{ di.op_value1 }})
+       csegs_values2.push({{ di.op_value2 }})
+    {% endif %}
+    {% endfor %}
+
+    $.jqplot('chart1', csegs_values1, {
+       title: 'Cseg 1',
+       legend: {
+          show:true, location: 'e',
+          placement: 'outside'
+       },
+       series: [
+          {dragable: {
+              color: '#ff3366',
+              constrainTo: 'y'
+          },
+          label: 'Original cseg: {{ code1 }}'},
+       {% for di in op_dicts %}
+       {% if di.op_type == 'Plot' %}
+          {label: '{{ di.op_name }}: {{ di.op_value_repr1 }}'},
+       {% endif %}
+       {% endfor %}
+       ]
+    });
+
+    $.jqplot('chart2', csegs_values2, {
+       title: 'Cseg 2',
+       legend: {
+          show:true, location: 'e',
+          placement: 'outside'
+       },
+       series: [
+          {dragable: {
+              color: '#ff3366',
+              constrainTo: 'y'
+          },
+          label: 'Original cseg: {{ code2 }}'},
+       {% for di in op_dicts %}
+       {% if di.op_type == 'Plot' %}
+          {label: '{{ di.op_name }}: {{ di.op_value_repr2 }}'},
+       {% endif %}
+       {% endfor %}
+       ]
+    });
+
+    $.jqplot('chart3', [{{ cseg1 }}, {{ cseg2 }}], {
+       title: 'Cseg 1 x Cseg 2',
+       legend: {
+          show:true, location: 'e',
+          placement: 'outside'
+       },
+       series: [
+          {label: 'Cseg1: {{ code1 }}'},
+          {label: 'Cseg2: {{ code2 }}'}
+       ]
+    });
+
+  });
+
+</script>
+
+<div id="chart1" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
+<div id="chart2" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
+<div id="chart3" style="margin-top:20px; margin-left:20px; width:400px; height:300px;"></div>
 
 {% endblock %}

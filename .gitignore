@@ -2,4 +2,4 @@
 *.pyc
 data.db
 serverconf.json
-
+/static/cseg_output.png

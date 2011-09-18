@@ -2,13 +2,15 @@
 
 {% block content %}
 
-<img src='{{ STATIC_URL }}musicontour-logo.png' alt='MusiContour logo'>
+<a href="http://genosmus.com/MusiContour" target="_blank" title="MusiContour">
+  <img src='{{ STATIC_URL }}musicontour-logo.png' alt='MusiContour logo'>
+</a>
 
 <p>This app calculates and plot musical contour operations.</p>
 
 <form id="form_contour" method="post" action="">
   {% csrf_token %}
-  {{ form_contour.as_p }}
+  {{ form.as_p }}
   <button>Submit</button>
 </form>
 
