@@ -38,10 +38,10 @@ def contour_show(request):
         dic = ops_dic[operation]
         name = dic['name']
         value = ca.apply_fn(cseg, operation)
-        graph = dic['graph']
-        if graph == True:
+        op_type = dic['op_type']
+        if op_type == 'Plot':
             ar.append({'name': name, 'code': operation, 'value': value,
-                       'lvalue': list(value), 'graph': graph})
+                       'lvalue': list(value), 'op_type': op_type})
         else:
             ar.append({'name': name, 'value': value})
 

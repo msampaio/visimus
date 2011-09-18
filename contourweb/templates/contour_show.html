@@ -34,7 +34,7 @@
     csegs_values[0] = {{ cseg }}
 
     {% for di in op_dicts %}
-    {% if di.graph %}
+    {% if di.op_type == 'Plot' %}
        csegs_values.push({{ di.lvalue }})
     {% endif %}
     {% endfor %}
@@ -48,7 +48,7 @@
        series: [
           {label: 'Original cseg: {{ code }}'},
        {% for di in op_dicts %}
-       {% if di.graph %}
+       {% if di.op_type == 'Plot' %}
           {label: '{{ di.name }}: {{ di.value }}'},
        {% endif %}
        {% endfor %}

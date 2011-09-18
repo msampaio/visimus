@@ -36,27 +36,27 @@ def validate_cps(str):
 
 ops_dic = {
     'retrograde': {'name': 'Retrograde',
-                   'graph': True},
+                   'op_type': 'Plot'},
     'inversion': {'name': 'Inversion',
-                   'graph': True},
+                   'op_type': 'Plot'},
     'translation': {'name': 'Normal form',
-                    'graph': True},
+                    'op_type': 'Plot'},
     'prime_form_marvin_laprade': {'name': 'ML Prime form',
-                                  'graph': True},
+                                  'op_type': 'Plot'},
     'internal_diagonals': {'name': 'Internal diagonal (1)',
-                           'graph': False},
+                           'op_type': 'Matrix'},
     'reduction_morris': {'name': 'Morris Reduction',
-                         'graph': False},
+                         'op_type': 'Comparison'},
     'adjacency_series_vector': {'name': 'Contour Adjacency Series Vector (CASV)',
-                                'graph': False},
+                                'op_type': 'Friedmann'},
     'interval_succession': {'name': 'Contour Interval Succession (CIS)',
-                            'graph': False},
+                            'op_type': 'Friedmann'},
     'interval_array': {'name': 'Contour Interval Array (CIA)',
-                       'graph': False},
+                       'op_type': 'Friedmann'},
     'class_vector_i': {'name': 'Contour Class Vector I (CCVI)',
-                       'graph': False},
+                       'op_type': 'Friedmann'},
     'class_vector_ii': {'name': 'Contour Class Vector II (CCVII)',
-                        'graph': False}}
+                        'op_type': 'Friedmann'}}
 
 
 OP_CHOICES = sorted([(op, ops_dic[op]['name']) for op in ops_dic.keys()], key=lambda x: x[1])
