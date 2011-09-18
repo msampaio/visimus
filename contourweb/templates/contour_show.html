@@ -29,6 +29,7 @@
 
 <script type="text/javascript" language="javascript">
     $(document).ready(function(){
+    $.jqplot.config.enablePlugins = true;
 
     var csegs_values=new Array();
     csegs_values[0] = {{ cseg }}
@@ -46,7 +47,11 @@
           placement: 'outside'
        },
        series: [
-          {label: 'Original cseg: {{ code }}'},
+          {dragable: {
+              color: '#ff3366',
+              constrainTo: 'y'
+          },
+          label: 'Original cseg: {{ code }}'},
        {% for di in op_dicts %}
        {% if di.op_type == 'Plot' %}
           {label: '{{ di.name }}: {{ di.value }}'},
