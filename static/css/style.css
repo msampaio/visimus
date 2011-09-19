@@ -306,6 +306,7 @@ header{
 	height:24px;
 	padding:18px 0 18px 15px;
 	width:224px;
+	margin-left:8px;
 	border:0;
 	-webkit-border-top-left-radius:4px; -moz-border-radius-topleft:4px; border-top-left-radius:4px;
 	background:url(images/logo.png) left center no-repeat;
