@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+
+    <h2>Deploy new version</h2>
+
+    <p><b>Current version:</b> {{ git_version }}</p>
+    <p></p>
+
+    <form id="deploy" name="deploy" method="post" action="{% url deploy %}">
+    {% csrf_token %}
+        <label>This will update the code on the server and restart apache.</label>
+        <p><button id="deploybtn" type="submit">Deploy</button></p>
+    </form>
+{% endblock %}

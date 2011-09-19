@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^matrix/', include('matrix.urls')),
     (r'^contour/', include('contourweb.urls')),
     (r'^harmony/', include('harmony.urls')),
+    (r'^users/', include('users.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 )
