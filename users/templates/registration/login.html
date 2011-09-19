@@ -10,7 +10,7 @@
         <form id="login" name="login" method="post" action=".">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="hidden" name="next" value="/">
+            <input type="hidden" name="next" value="{% url dashboard %}">
             <div class="form-text">
             <p><input type="checkbox" name="remember" value="yes"/>Remember me on this computer</p>
             <p><button id="button-login" type="submit" class="sexybutton sexysimple sexygreen sexyxxl">login</button></p>
